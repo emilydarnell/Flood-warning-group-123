@@ -13,7 +13,7 @@ def run():
 if __name__ == "__main__":
     run()
 
-def run2():
+def run1():
     # DEMONSTRATION PROGRAM FOR TASK 1D.2 #
     stations = build_station_list()
     result2 = stations_by_river(stations)
@@ -23,4 +23,4 @@ def run2():
     
 
 if __name__ == "__main__":
-    run2()
+    run1()
