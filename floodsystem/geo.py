@@ -53,3 +53,31 @@ def stations_by_river(stations):
                 stations_on_river.append(station.name)
         river_station_dict[river] = stations_on_river
     return river_station_dict
+
+
+#CODE FOR TASK 1E#
+
+def rivers_by_station_number(stations, N):
+    #Creates a list of rivers sorted by the number of stations on them#
+
+    station_number_list = []
+    dictionary = stations_by_river(stations)
+    for i in dictionary.keys():
+        n = len(dictionary[i])
+        station_number_tuple = (i, n)
+        station_number_list.append(station_number_tuple)
+
+    sorted_station_by_number = sorted_by_key(station_number_list, 1, reverse=True)
+
+    if sorted_station_by_number[N-1][1] != sorted_station_by_number[N][1]:
+        return sorted_station_by_number[:N]
+        #need some sort of recursion in the next part#
+    elif sorted_station_by_number[N-1][1] == sorted_station_by_number[N][1]:
+        for i in range(N+1, len(sorted_station_by_number)):
+            extra = i - N
+            if sorted_station_by_number[i-1][1] != sorted_station_by_number[i][1]:
+                break
+        return sorted_station_by_number[: N+extra]
+
+
+        
