@@ -2,8 +2,6 @@
 # with a single version of Python For more information see:
 # https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-from haversine import haversine
-
 name: CUED Flood Warning CI
 
 on: [push, pull_request]
