@@ -9,6 +9,6 @@ def run():
 
     print(result)
     print(len(result))
-    
+
 if __name__ == "__main__":
     run()
