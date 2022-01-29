@@ -2,7 +2,7 @@
 from floodsystem.stationdata import build_station_list
 from floodsystem.geo import stations_within_radius
 
-#tests that none of the distances or more than r#
+#tests that only distances above r are included#
 def test_stations_within_radius():
     stations = build_station_list()
     city_centre_coord = (52.2053, 0.1218)
