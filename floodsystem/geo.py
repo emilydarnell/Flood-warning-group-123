@@ -28,6 +28,19 @@ def stations_by_distance(stations, p):
 
     return sorted_station_by_distance
 
+#CODE FOR TASK 1C#
+
+def stations_within_radius(stations, centre, r):
+    within_r = []
+
+    for station in stations:
+        distance = haversine(station.coord, centre)
+        if distance <= r :
+            within_r.append(station.name)
+    sorted_within_r = within_r.sort()
+
+    return within_r
+    
 
 #CODE FOR TASK 1D.1#
 
