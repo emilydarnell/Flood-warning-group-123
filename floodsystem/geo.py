@@ -31,12 +31,15 @@ def stations_by_distance(stations, p):
 #CODE FOR TASK 1C#
 
 def stations_within_radius(stations, centre, r):
+    #empty list of stations within the radius#
     within_r = []
-
+ #find distance of eaach station from centre#
     for station in stations:
         distance = haversine(station.coord, centre)
+        #add any stations within the specified radius to a list#
         if distance <= r :
             within_r.append(station.name)
+#sort list into alphabetical order by station name#
     sorted_within_r = within_r.sort()
 
     return within_r
