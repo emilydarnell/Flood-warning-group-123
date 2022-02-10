@@ -3,7 +3,7 @@ from floodsystem.stationdata import build_station_list
 from floodsystem.geo import rivers_by_station_number
 
 
-#checking that each river only appears once in the list#
+#checking that the number of stations on each river is decreasing#
 def test_rivers_by_station_number():
     stations = build_station_list()
     test = rivers_by_station_number(stations, 20)
