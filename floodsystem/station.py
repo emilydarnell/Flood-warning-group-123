@@ -6,7 +6,6 @@ for manipulating/modifying station data
 
 """
 
-
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -37,6 +36,7 @@ class MonitoringStation:
         d += "   town:          {}\n".format(self.town)
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
+        d += "   latest_level: {}".format(self.latest_level)
         return d
 
 #CODE FOR TASK 1F#
@@ -56,11 +56,22 @@ class MonitoringStation:
                 return False
             else:
                 return True
+    
+    def relative_water_level(self):
+        
+        if (self.latest_level is not None) and self.typical_range_consistent():
+           
+            return (self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
+        else:
+            return None
 
 # creates a lost of all inconsistent data #
-def inconsistent_typical_range_stations(stations):
-    a =[]
-    for i in stations:
-        if i.typical_range_consistent() is False:
-            a.append(i)
-    return a
+    def inconsistent_typical_range_stations(stations):
+        a =[]
+        for i in stations:
+            if i.typical_range_consistent() is False:
+                a.append(i)
+        return a
+
+# Code for Task 2B#
+    
