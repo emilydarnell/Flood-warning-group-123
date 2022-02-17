@@ -56,7 +56,8 @@ class MonitoringStation:
                 return False
             else:
                 return True
-    
+                
+    # Code for Task 2B#
     def relative_water_level(self):
         
         if (self.latest_level is not None) and self.typical_range_consistent():
@@ -66,12 +67,12 @@ class MonitoringStation:
             return None
 
 # creates a lost of all inconsistent data #
-    def inconsistent_typical_range_stations(stations):
-        a =[]
-        for i in stations:
-            if i.typical_range_consistent() is False:
-                a.append(i)
-        return a
+def inconsistent_typical_range_stations(stations):
+    a =[]
+    for i in stations:
+        if i.typical_range_consistent() is False:
+            a.append(i)
+    return a
 
-# Code for Task 2B#
+
     
