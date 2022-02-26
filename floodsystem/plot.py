@@ -2,13 +2,11 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from floodsystem.station import MonitoringStation
 
-
+# CODE FOR TASK 2E #
 # creating function that will plot water level against time#
 def plot_water_levels(station, dates, levels):
-    t = [datetime(2016, 12, 30), datetime(2016, 12, 31), datetime(2017, 1, 1),
-     datetime(2017, 1, 2), datetime(2017, 1, 3), datetime(2017, 1, 4),
-     datetime(2017, 1, 5)]
-    level = [0.2, 0.7, 0.95, 0.92, 1.02, 0.91, 0.64]
+    t = dates
+    level = levels
 
 # Plot
     plt.plot(t, level)
@@ -17,9 +15,11 @@ def plot_water_levels(station, dates, levels):
     plt.xlabel('date')
     plt.ylabel('water level (m)')
     plt.xticks(rotation=45);
-    plt.title()
+    plt.title(station.name)
 
-# Display plot
+# plot the typical high/low ranges on the same graph
+
+    # Display plot
     plt.tight_layout()  # This makes sure plot does not cut off date labels
-
     plt.show()
+    
