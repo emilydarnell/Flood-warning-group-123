@@ -8,6 +8,6 @@ def polyfit(dates, levels, p):
     shift = np.min(converted_dates)
     shifted_dates = converted_dates - shift
     poly = poly = np.poly1d(np.polyfit(shifted_dates, levels, p))
-
+    
     return poly, shift
 
