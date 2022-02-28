@@ -52,7 +52,7 @@ def plot_water_level_with_fit(station, dates, levels, p):
  # add the polyfit to the graph #
     poly, shift = polyfit(dates, levels, p)
     x = matplotlib.dates.date2num(dates)
-    x_shifted = poly*(x - shift)
+    x_shifted = poly(x - shift)
 
     plt.plot(dates, x_shifted)
 

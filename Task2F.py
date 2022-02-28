@@ -28,26 +28,27 @@ def run():
         names.append(i[0])
     print(names)
     # Find each station
+    names_with_id = []
     for i in names:
         station_name = i
         station_specific = None
         for station in stations:
             if station.name == station_name:
                 station_specific = station
-                break    
+                names_with_id.append(station_specific)
+                break
         # Check that each station could be found. Return if not found.
         if not station_specific:
             print("Station {} could not be found".format(station_name))
             return
         
+    for i in names_with_id:     
         # Fetch data over past 2 days
         dt = 2
         dates, levels = fetch_measure_levels(
             station_specific.measure_id, dt=datetime.timedelta(days=dt))
-        
         # Put this data onto a graph
-        plot_water_level_with_fit(station, dates, levels, 4)
-        
+        plot_water_level_with_fit(i, dates, levels, 4)
 
 if __name__ == "__main__":
     run()
