@@ -45,7 +45,10 @@ def run():
             station_specific.measure_id, dt=datetime.timedelta(days=dt))
         
         # Put this data onto a graph
-        plot_water_levels(station, dates, levels)
+        if len(levels) != 0:
+            plot_water_levels(station, dates, levels)
+        else:
+            print('Invalid data for {}'.format(i))
         
 
 if __name__ == "__main__":
