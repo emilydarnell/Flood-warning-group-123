@@ -1,6 +1,8 @@
 from floodsystem.station import inconsistent_typical_range_stations
 from floodsystem.stationdata import build_station_list
 from floodsystem.stationdata import update_water_levels
+from floodsystem.risk import mean_level
+import datetime
 
 ### CODE FOR MAKING LIST OF TOWNS WITHOUT THE NECESSARY DATA ###
 stations = build_station_list()
@@ -69,3 +71,6 @@ low_risk_towns = list(low_risk_towns_set - moderate_risk_towns_set - high_risk_t
 
 unknown_risk_towns = list(unknown_risk_towns_set - low_risk_towns_set - moderate_risk_towns_set - high_risk_towns_set - severe_risk_towns_set)
 ### END OF CODE TO REMOVE TOWNS THAT ARE IN MORE THAN ONE CATEGORY, BY HIGH SEVERITY DOMINATING ###
+
+print(severe_risk_towns)
+print(high_risk_towns)
