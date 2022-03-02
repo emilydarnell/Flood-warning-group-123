@@ -19,12 +19,12 @@ low_risk_towns_set = set()
 
 for station in stations:
     if station.relative_water_level() is not None and station.town is not None:
-            if station.relative_water_level() < 1.2:
+            if station.relative_water_level() < 1.0:
                 low_risk_towns_set.add(station.town)
 ### END OF CODE FOR MAKING LIST OF TOWNS WITH LOW RISK LEVEL ###
 
 
-### CODE FOR ASSESSING TOWNS WITH STATIONS IN RANGE 1.2 + ###
+### CODE FOR ASSESSING TOWNS WITH STATIONS IN RANGE 1 + ###
 moderate_risk_towns_set = set()
 high_risk_towns_set = set()
 severe_risk_towns_set = set()
@@ -42,8 +42,8 @@ for station in stations:
 
     if station.relative_water_level() is not None and station.town is not None:
             if 1.4 < station.relative_water_level() < 1.8:
-                if isinstance(mean_level(station, 3), float) == True and 1.5 < mean_level(station, 3) < 1.8:
-                    if isinstance(mean_level(station, 7), float) == True and 1.5 < mean_level(station, 7) < 1.8:
+                if isinstance(mean_level(station, 3), float) == True and 1.4 < mean_level(station, 3) < 1.8:
+                    if isinstance(mean_level(station, 7), float) == True and 1.4 < mean_level(station, 7) < 1.8:
                         severe_risk_towns_set.add(station.town)
                     else:
                         high_risk_towns_set.add(station.town)
