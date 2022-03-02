@@ -12,6 +12,3 @@ def mean_level(station, days_back):
         mean = statistics.mean(levels)
         relative_mean_level = (mean - station.typical_range[0])/(station.typical_range[1]-station.typical_range[0])
         return relative_mean_level
-    else:
-        return print('No levels for this station')
-

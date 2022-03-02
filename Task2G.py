@@ -31,9 +31,9 @@ severe_risk_towns_set = set()
 
 for station in stations:
     if station.relative_water_level() is not None and station.town is not None:
-            if 1.2 < station.relative_water_level() < 1.5:
-                if 1.2 < mean_level(station, 3) < 1.5:
-                    if 1.2 < mean_level(station, 7) < 1.5:
+            if 1 < station.relative_water_level() < 1.4:
+                if isinstance(mean_level(station, 3), float) == True and 1 < mean_level(station, 3) < 1.4:
+                    if isinstance(mean_level(station, 7), float) == True and 1 < mean_level(station, 7) < 1.4:
                         high_risk_towns_set.add(station.town)
                     else:
                         moderate_risk_towns_set.add(station.town)
@@ -41,9 +41,9 @@ for station in stations:
                     moderate_risk_towns_set.add(station.town)
 
     if station.relative_water_level() is not None and station.town is not None:
-            if 1.5 < station.relative_water_level() < 2:
-                if 1.5 < mean_level(station, 3) < 2:
-                    if 1.5 < mean_level(station, 7) < 2:
+            if 1.4 < station.relative_water_level() < 1.8:
+                if isinstance(mean_level(station, 3), float) == True and 1.5 < mean_level(station, 3) < 1.8:
+                    if isinstance(mean_level(station, 7), float) == True and 1.5 < mean_level(station, 7) < 1.8:
                         severe_risk_towns_set.add(station.town)
                     else:
                         high_risk_towns_set.add(station.town)
@@ -51,9 +51,9 @@ for station in stations:
                     moderate_risk_towns_set.add(station.town)
 
     if station.relative_water_level() is not None and station.town is not None:
-            if station.relative_water_level() > 2:
-                if mean_level(station, 3) > 2:
-                    if mean_level(station, 7) > 2:
+            if station.relative_water_level() > 1.8:
+                if isinstance(mean_level(station, 3), float) == True and mean_level(station, 3) > 1.8:
+                    if isinstance(mean_level(station, 7), float) == True and mean_level(station, 7) > 1.8:
                         severe_risk_towns_set.add(station.town)
                     else:
                         severe_risk_towns_set.add(station.town)
@@ -72,5 +72,32 @@ low_risk_towns = list(low_risk_towns_set - moderate_risk_towns_set - high_risk_t
 unknown_risk_towns = list(unknown_risk_towns_set - low_risk_towns_set - moderate_risk_towns_set - high_risk_towns_set - severe_risk_towns_set)
 ### END OF CODE TO REMOVE TOWNS THAT ARE IN MORE THAN ONE CATEGORY, BY HIGH SEVERITY DOMINATING ###
 
-print(severe_risk_towns)
-print(high_risk_towns)
+if len(severe_risk_towns) != 0:
+    print('Severe:')
+    print(severe_risk_towns)
+else:
+    print('No severe risk level rivers')
+
+if len(high_risk_towns) != 0:
+    print('High:')
+    print(high_risk_towns)
+else:
+    print('No high risk level rivers')
+
+if len(moderate_risk_towns) != 0:
+    print('Moderate:')
+    print(moderate_risk_towns)
+else:
+    print('No moderate risk level rivers')
+
+if len(low_risk_towns) != 0:
+    print('Low:')
+    print(low_risk_towns)
+else:
+    print('No low risk level rivers')
+
+if len(unknown_risk_towns) != 0:
+    print('Unknown:')
+    print(unknown_risk_towns)
+else:
+    print('No unknown risk level rivers')
